@@ -1,0 +1,72 @@
+@{
+    Layout = null;
+    ViewBag.Title = "Page Not Found";
+}
+<title>
+    Page Not Found
+</title>
+
+<style>
+    body {
+        background-color: #d9f0ff;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+
+    .gradient-background {
+        background: linear-gradient(300deg, #211C84, #A91079, #570A57, #211C84, #A91079, #570A57);
+        background-size: 480% 480%;
+        animation: gradient-animation 8s ease infinite;
+    }
+
+    @@keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #F2F7A1;
+    }
+
+    .error-code {
+        font-size: 100px;
+        font-weight: bold;
+        color: #F2F7A1;
+    }
+
+    .error-message {
+        font-size: 20px;
+        color: #F2F7A1;
+    }
+
+    .sub-message {
+        color: #F2F7A1;
+    }
+</style>
+<body class="gradient-background">
+    
+<div class="container ">
+    <div class="logo" style="display: flex; gap: 10px; justify-content: center; align-items: center;">
+        <p style="font-size: 35px;">PROJECT NAME</p>
+    </div>
+    <div class="error-code">404</div>
+    <div class="error-message">404 - Not Found</div>
+    <p class="sub-message">The page you are looking for does not exist.</p>
+</div>
+</body>
