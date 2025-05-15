@@ -1,1 +1,101 @@
-<h1 class="text-white">User Dashboard</h1>
+@model DAL.ViewModels.UserDashboardViewModal
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="text-white text-center pt-3">User Dashboard</h1>
+    <div>
+        <button class="btn btn-danger" id="LogoutButton">Logout</button>
+    </div>
+</div>
+
+<button class="btn btn-success" id="IssueButton">Issue</button>
+<button class="btn btn-danger" id="ReturnButton">Return</button>
+
+<div id="booksDataPartialDiv">
+    <partial name="_BooksDataPartial" model="@Model" />
+</div>
+
+@* issue book modal *@
+<div class="modal fade" id="issueBookModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteModelLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModelLabel">Issue Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-column align-items-center">
+                <img src="~/images/warning.svg" class="medium-image" alt="">
+                <p>Are you sure you want to issue this book?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="issueBookButton" class="btn btn-primary px-3"
+                    data-bs-dismiss="modal">Yes</button>
+                <a data-bs-dismiss="modal"><button type="button" class="btn btn-contrast px-3">No</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* return book modal *@
+<div class="modal fade" id="returnBookModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteModelLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModelLabel">Return Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-column align-items-center">
+                <img src="~/images/warning.svg" class="medium-image" alt="">
+                <p>Are you sure you want to return this book?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="returnBookButton" class="btn btn-primary px-3"
+                    data-bs-dismiss="modal">Yes</button>
+                <a data-bs-dismiss="modal"><button type="button" class="btn btn-contrast px-3">No</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    var inIssue = true;
+
+    $("#IssueButton").off("click").click(function () {
+        inIssue = true;
+        reloadPartialView();
+    });
+
+    $("#ReturnButton").off("click").click(function () {
+        inIssue = false;
+        reloadPartialView();
+    });
+
+    $("#addBookButton").off("click").click(function () {
+        $.ajax({
+            url: "/Admin/RefreshAddEditBook/",
+            type: "GET",
+            success: function (data) {
+                $("#addEditBookModalPartial").html(data);
+                clearAddEditBookForm();
+                $("#addEditBookModal").modal("show");
+                $.validator.unobtrusive.parse("#AddEditBookForm");
+            }
+        });
+    });
+
+    $("#LogoutButton").off("click").click(function () {
+        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "isAdmin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        sessionStorage.clear();
+
+        window.location.href = "/";
+    });
+</script>

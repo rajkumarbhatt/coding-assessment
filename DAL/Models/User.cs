@@ -18,6 +18,7 @@ public class User
     [Required]
     [StringLength(10)]
     public string Phone { get; set; } = null!;
+    public int NoOfBookIssued { get; set; }
     [Required]
     public int RoleId { get; set; }
     public virtual Role Role { get; set; } = null!;

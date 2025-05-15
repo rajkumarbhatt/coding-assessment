@@ -1,5 +1,13 @@
 @model DAL.ViewModels.AdminDashboardViewModal
-<h1 class="text-white text-center pt-3">Admin Dashboard</h1>
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="text-white text-center pt-3">Admin Dashboard</h1>
+    <div><button id="addBookButton" class="btn btn-primary px-3">Add Book</button>
+        <button class="btn btn-danger" id="LogoutButton">Logout</button>
+    </div>
+</div>
+
+<button class="btn btn-success" id="AvailableButton">Available</button>
+<button class="btn btn-danger" id="IssuedButton">Issued</button>
 
 <div id="booksDataPartialDiv">
     <partial name="_BooksDataPartial" model="@Model" />
@@ -21,8 +29,54 @@
             <div class="modal-footer">
                 <button type="button" id="deleteBookButton" class="btn btn-primary px-3"
                     data-bs-dismiss="modal">Yes</button>
-                <a asp-controller="UserList"><button type="button" class="btn btn-contrast px-3">No</button></a>
+                <a data-bs-dismiss="modal"><button type="button" class="btn btn-contrast px-3">No</button></a>
             </div>
         </div>
     </div>
 </div>
+
+<div id="addEditBookModalPartial">
+    <partial name="_AddEditBookModalPartial" model="@Model" />
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    var inAvailabe = true;
+
+    $("#IssuedButton").off("click").click(function () {
+        inAvailabe = false;
+        reloadPartialView();
+    });
+
+    $("#AvailableButton").off("click").click(function () {
+        inAvailabe = true;
+        reloadPartialView();
+    });
+
+    $("#addBookButton").off("click").click(function () {
+        $.ajax({
+            url: "/Admin/RefreshAddEditBook/",
+            type: "GET",
+            success: function (data) {
+                $("#addEditBookModalPartial").html(data);
+                clearAddEditBookForm();
+                $("#addEditBookModal").modal("show");
+                $.validator.unobtrusive.parse("#AddEditBookForm");
+            }
+        });
+    });
+
+    $("#LogoutButton").off("click").click(function () {
+        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "isAdmin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        sessionStorage.clear();
+
+        window.location.href = "/";
+    });
+</script>

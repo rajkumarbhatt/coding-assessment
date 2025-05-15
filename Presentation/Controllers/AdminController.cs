@@ -1,4 +1,5 @@
 using BLL.Interfaces;
+using DAL.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentaion.Controllers;
@@ -47,16 +48,67 @@ public class AdminController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> RefreshBooksData (int pageIndex = 1, int pageSize = 8)
+    public async Task<IActionResult> RefreshBooksData(int pageIndex = 1, int pageSize = 8, bool inAvailable = true)
     {
         try
         {
-            var adminDashboardViewModal = await _adminService.GetAdminDashboardViewModalAsync(pageIndex, pageSize);
+            var adminDashboardViewModal = await _adminService.GetAdminDashboardViewModalAsync(pageIndex, pageSize, inAvailable);
             return PartialView("_BooksDataPartial", adminDashboardViewModal);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error occurred while refreshing books data.");
+            return View("Error");
+        }
+    }
+
+    [HttpGet]
+    [CustomAuth("Admin")]
+    public async Task<IActionResult> GetBookById(int bookId)
+    {
+        try
+        {
+            AdminDashboardViewModal adminDashboardViewModal = await _adminService.GetBookByIdAsync(bookId);
+            return PartialView("_AddEditBookModalPartial", adminDashboardViewModal);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error occurred while fetching book data.");
+            return View("Error");
+        }
+    }
+
+    [HttpPost]
+    [CustomAuth("Admin")]
+    public async Task<IActionResult> AddEditBook(AddEditBookViewModal addEditBookViewModal)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { success = false, message = "Invalid data" });
+            }
+            return await _adminService.AddEditBookAsync(addEditBookViewModal);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error occurred while updating the book.");
+            return Json(new { success = false, message = "Error occurred while updating the book" });
+        }
+    }
+
+    [HttpGet]
+    [CustomAuth("Admin")]
+    public async Task<IActionResult> RefreshAddEditBook()
+    {
+        try
+        {
+            AdminDashboardViewModal adminDashboardViewModal = await _adminService.GetBookByIdAsync(0);
+            return PartialView("_AddEditBookModalPartial", adminDashboardViewModal);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error occurred while fetching book data.");
             return View("Error");
         }
     }

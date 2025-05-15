@@ -1,0 +1,196 @@
+@model DAL.ViewModels.AdminDashboardViewModal
+
+
+<div class="modal fade" id="addEditBookModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered table-modal">
+        <div class="modal-content">
+            <form id="AddEditBookForm" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTableTitle">Add Book</h5>
+                    <button onclick="clearAddEditBookForm()" type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row align-items-center">
+                        <div class="col-12 row">
+                            <div class="form-floating my-auto col-12 col-md-6">
+                                @if (Model.AddEditBookViewModal != null && Model.AddEditBookViewModal.BookId != 0)
+                                {
+                                    <input type="hidden" asp-for="@Model.AddEditBookViewModal.BookId"
+                                        value="@Model.AddEditBookViewModal.BookId" />
+                                }
+                                else
+                                {
+                                    <input type="hidden" asp-for="@Model.AddEditBookViewModal.BookId" value="0" />
+                                }
+                                @if (Model.AddEditBookViewModal != null && Model.AddEditBookViewModal.Title != null)
+                                {
+                                    <input asp-for="@Model.AddEditBookViewModal.Title" type="text" class="form-control"
+                                        name="AddEditBookViewModal.Title" id="TableName" placeholder="ItemName"
+                                        value="@Model.AddEditBookViewModal.Title">
+                                }
+                                else
+                                {
+                                    <input asp-for="@Model.AddEditBookViewModal.Title" type="text" class="form-control"
+                                        name="AddEditBookViewModal.Title" id="TableName" placeholder="ItemName">
+                                }
+                                <label for="ItemName" class="">Title*</label>
+                                <span asp-validation-for="@Model.AddEditBookViewModal.Title" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating my-auto col-12 col-md-6">
+                                @if (Model.AddEditBookViewModal != null && Model.AddEditBookViewModal.Author != null)
+                                {
+                                    <input asp-for="@Model.AddEditBookViewModal.Author" type="text" class="form-control"
+                                        name="AddEditBookViewModal.Author" id="TableCapacity" placeholder="ItemName"
+                                        value="@Model.AddEditBookViewModal.Author">
+                                }
+                                else
+                                {
+                                    <input asp-for="@Model.AddEditBookViewModal.Author" type="text" class="form-control"
+                                        name="AddEditBookViewModal.Author" id="TableCapacity" placeholder="ItemName">
+                                }
+                                <label for="ItemName" class="">Author*</label>
+                                <span asp-validation-for="@Model.AddEditBookViewModal.Author"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-12 row mt-2">
+                            <div class="form-floating my-auto col-12 col-md-6">
+                                @if (Model.AddEditBookViewModal != null && Model.AddEditBookViewModal.ISBN != null)
+                                {
+                                    <input asp-for="@Model.AddEditBookViewModal.ISBN" type="text" class="form-control"
+                                        name="AddEditBookViewModal.ISBN" id="TableCapacity" placeholder="ItemName"
+                                        value="@Model.AddEditBookViewModal.ISBN">
+                                }
+                                else
+                                {
+                                    <input asp-for="@Model.AddEditBookViewModal.ISBN" type="text" class="form-control"
+                                        name="AddEditBookViewModal.ISBN" id="TableCapacity" placeholder="ItemName">
+                                }
+                                <label for="ItemName" class="">ISBN*</label>
+                                <span asp-validation-for="@Model.AddEditBookViewModal.ISBN" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating my-auto col-12 col-md-6">
+                                @if (Model.AddEditBookViewModal != null && Model.AddEditBookViewModal.PublishedYear !=
+                                                                null)
+                                {
+                                    <input asp-for="@Model.AddEditBookViewModal.PublishedYear" type="text"
+                                        class="form-control" name="AddEditBookViewModal.PublishedYear" id="TableCapacity"
+                                        placeholder="ItemName" value="@Model.AddEditBookViewModal.PublishedYear">
+                                }
+                                else
+                                {
+                                    <input asp-for="@Model.AddEditBookViewModal.PublishedYear" type="text"
+                                        class="form-control" name="AddEditBookViewModal.PublishedYear" id="TableCapacity"
+                                        placeholder="ItemName">
+                                }
+                                <label for="ItemName" class="">Published Year*</label>
+                                <span asp-validation-for="@Model.AddEditBookViewModal.PublishedYear"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-12 row mt-2">
+                            <div class="col-12 col-md-6 p-2 form-floating">
+                                <select asp-for="AddEditBookViewModal.Status" id="TableStatus" class="form-select"
+                                    aria-label="CategoryId">
+                                    <option value="true" selected="@(Model.AddEditBookViewModal.Status == true)">
+                                        Available</option>
+                                    <option value="false" selected="@(Model.AddEditBookViewModal.Status == false)">
+                                        Issued</option>
+                                </select>
+                                <label for="CategoryId" class="mx-2 mt-2" style="left: 0;">Status*</label>
+                                <span asp-validation-for="@Model.AddEditBookViewModal.Status"
+                                    class="text-danger"></span>
+                            </div>
+                            <div class="file upload position-relative overflow-hidden btn-custom">
+                                <div class="d-flex flex-column justify-content-center align-items-center my-3">
+                                    <img src="~/images/cloud.svg" class="small-image" alt="">
+                                    <span>Browse Files</span>
+                                    <p id="file-name"></p>
+                                </div>
+                                <input type="file" id="upload-btn" class="position-absolute file-input-btn"
+                                    name="ProfileImage" accept="image/*" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-end ">
+                    <button id="AddEditBookButton" onclick="addEditBook()" type="submit"
+                        class="btn btn-primary px-3">Save</button>
+                    <a onclick="clearAddEditBookForm()" data-bs-dismiss="modal"><button type="button"
+                            class="btn btn-contrast px-3">No</button></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    document.getElementById("upload-btn").addEventListener("change", (e) => {
+        try {
+            const file = e.target.files[0];
+            if (file && !file.type.startsWith("image/")) {
+                toastr.error("Please select an image file.");
+                return;
+            }
+            if (file) {
+                document.getElementById("file-name").textContent = file.name;
+            }
+        } catch (error) {
+            console.error("Error in file upload handler:", error);
+            toastr.error("An unexpected error occurred during file upload.");
+        }
+    });
+
+    function addEditBook() {
+        try {
+            $("#AddEditBookForm").off("submit").submit(function (e) {
+                e.preventDefault();
+                if (!$(this).valid()) {
+                    return;
+                }
+                var formData = new FormData(this);
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/AddEditBook",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.success) {
+                            toastr.success(response.message);
+                            $("#addEditBookModal").modal("hide");
+                            reloadPartialView();
+                        } else {
+                            toastr.error(response.message);
+                        }
+                    },
+                    error: function (error) {
+                        console.error("Error in AJAX request:", error);
+                        toastr.error("An unexpected error occurred.");
+                    }
+                });
+            });
+        } catch (error) {
+            console.error("Error in addEditBook function:", error);
+            toastr.error("An unexpected error occurred.");
+        }
+    }
+
+    function clearAddEditBookForm() {
+        try {
+            $(".text-danger").text("");
+            document.getElementById("file-name").textContent = "";
+        } catch (error) {
+            console.error("Error in clearAddEditBookForm function:", error);
+            toastr.error("An unexpected error occurred.");
+        }
+    }
+</script>

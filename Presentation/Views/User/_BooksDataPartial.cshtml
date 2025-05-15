@@ -1,4 +1,4 @@
-@model DAL.ViewModels.AdminDashboardViewModal
+@model DAL.ViewModels.UserDashboardViewModal
 
 <div class="books-container">
     @foreach (var book in @Model.Books)
@@ -25,12 +25,19 @@
                 <p>ISBN: @book.ISBN</p>
                 <div class="action-buttons d-flex gap-3">
                     @{
-                        var editBtnId = "edit-" + book.BookId;
-                        var deleteBtnId = "delete-" + book.BookId;
+                        var issueBtnId = "issue-" + book.BookId;
+                        var returnBtnId = "return-" + book.BookId;
                     }
-                    <button id="@editBtnId" onclick="editBook('@editBtnId')" class="btn btn-primary edit-book">Edit</button>
-                    <button id="@deleteBtnId" onclick="deleteBook('@deleteBtnId')"
-                        class="btn btn-danger delete-book">Delete</button>
+                    @if (Model.InIssue)
+                    {
+                        <button id="@issueBtnId" onclick="issueBook('@issueBtnId')"
+                            class="btn btn-primary edit-book">Issue</button>
+                    }
+                    else
+                    {
+                        <button id="@returnBtnId" onclick="returnBook('@returnBtnId')"
+                            class="btn btn-danger delete-book">Return</button>
+                    }
                 </div>
             </div>
         </div>
@@ -68,46 +75,6 @@
     var pageIndex = @Model.PageIndex;
     var pageSize = $("#PageSizeSelectOrders").val();
 
-    function editBook(id) {
-        $.ajax({
-            url: "/Admin/GetBookById/",
-            data: { bookId: id.toString().split("-")[1] },
-            type: "GET",
-            success: function (data) {
-                $("#addEditBookModalPartial").html(data);
-                $("#addEditBookModal").modal("show");
-                $.validator.unobtrusive.parse("#AddEditBookForm");
-            },
-            error: function () {
-                toastr.error("An error occurred while fetching the book details.");
-            }
-        });
-    }
-
-    function deleteBook(id) {
-        debugger;
-        $("#deleteBookModal").modal("show");
-        var bookId = id.toString().split("-")[1];
-        $("#deleteBookButton").off("click").on("click", function () {
-            $.ajax({
-                url: "/Admin/DeleteBook/",
-                data: { bookId: bookId },
-                type: "POST",
-                success: function (response) {
-                    if (response.success) {
-                        toastr.success(response.message);
-                        reloadPartialView();
-                    } else {
-                        toastr.error(response.message);
-                    }
-                },
-                error: function () {
-                    toastr.error("An error occurred while deleting the book.");
-                }
-            });
-        });
-    }
-
     function changePageSizeOrders(newPageSize) {
         pageSize = newPageSize;
         reloadPartialView();
@@ -115,15 +82,62 @@
 
     function reloadPartialView() {
         $.ajax({
-            url: '/Admin/RefreshBooksData',
+            url: '/User/RefreshBooksData',
             type: 'GET',
-            data: { pageIndex: pageIndex, pageSize: pageSize, inAvailable: inAvailabe },
+            data: { pageIndex: pageIndex, pageSize: pageSize, inIssue: inIssue },
             success: function (data) {
                 $('#booksDataPartialDiv').html(data);
             },
             error: function () {
                 toastr.error("An error occurred while reloading the books data.");
             }
+        });
+    }
+
+    function issueBook(id) {
+        debugger
+        $("#issueBookModal").modal("show");
+        var bookId = id.toString().split("-")[1];
+        $("#issueBookButton").off("click").on("click", function () {
+            $.ajax({
+                url: "/User/IssueBook/",
+                data: { bookId: bookId },
+                type: "POST",
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.message);
+                        reloadPartialView();
+                    } else {
+                        toastr.error(data.message);
+                    }
+                },
+                error: function () {
+                    toastr.error("An error occurred while issuing the book.");
+                }
+            });
+        });
+    }
+
+    function returnBook(id) {
+        $("#returnBookModal").modal("show");
+        var bookId = id.toString().split("-")[1];
+        $("#returnBookButton").off("click").on("click", function () {
+            $.ajax({
+                url: "/User/ReturnBook/",
+                data: { bookId: bookId },
+                type: "POST",
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.message);
+                        reloadPartialView();
+                    } else {
+                        toastr.error(data.message);
+                    }
+                },
+                error: function () {
+                    toastr.error("An error occurred while returning the book.");
+                }
+            });
         });
     }
 </script>

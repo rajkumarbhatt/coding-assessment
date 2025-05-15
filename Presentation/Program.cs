@@ -15,6 +15,7 @@ builder.Services.AddDbContext<DBContext>(options => options.UseNpgsql(builder.Co
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
@@ -25,6 +26,8 @@ builder.Host.UseSerilog((context, services, configuration) =>
         .WriteTo.File("logs/log.txt")
         .Filter.ByIncludingOnly(logEvent =>
             logEvent.Properties["SourceContext"].ToString().Contains("BLL.Services.JwtService") ||
+            logEvent.Properties["SourceContext"].ToString().Contains("BLL.Services.AdminService") ||
+            logEvent.Properties["SourceContext"].ToString().Contains("BLL.Services.UserService") ||
             logEvent.Properties["SourceContext"].ToString().Contains("BLL.Services.LoginService"));
 });
 

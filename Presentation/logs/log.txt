@@ -165,3 +165,26 @@ System.Exception: Book not found
 2025-05-15 11:42:05.329 +05:30 [ERR] Error occurred while deleting the book with ID 0
 System.Exception: Book not found
    at BLL.Services.AdminService.DeleteBookAsync(Int32 id) in C:\Users\pci88\Desktop\Internship_Tasks\Surprize Test\BLL\Services\AdminService.cs:line 48
+2025-05-15 11:48:48.898 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 11:48:48.923 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 14:02:09.627 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 14:02:09.649 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 14:02:24.237 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-15 14:02:24.237 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 14:03:04.017 +05:30 [WRN] Invalid password for user with email raj@yopmail.com
+2025-05-15 14:03:07.982 +05:30 [WRN] Invalid password for user with email raj@yopmail.com
+2025-05-15 14:03:10.656 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 14:03:10.656 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 14:04:48.308 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 14:04:48.329 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 14:04:58.477 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-15 14:04:58.478 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 14:39:41.845 +05:30 [INF] Book with ID 2 issued successfully to user with ID 2
+2025-05-15 14:40:54.086 +05:30 [INF] Book with ID 4 issued successfully to user with ID 2
+2025-05-15 14:40:55.824 +05:30 [INF] Book with ID 4 issued successfully to user with ID 2
+2025-05-15 14:45:35.208 +05:30 [INF] Book with ID 4 issued successfully to user with ID 2
+2025-05-15 14:45:40.001 +05:30 [INF] Book with ID 4 returned successfully by user with ID 2
+2025-05-15 14:45:53.949 +05:30 [INF] Book with ID 2 issued successfully to user with ID 2
+2025-05-15 14:45:56.341 +05:30 [INF] Book with ID 4 issued successfully to user with ID 2
+2025-05-15 14:46:02.773 +05:30 [INF] Book with ID 4 returned successfully by user with ID 2
+2025-05-15 14:46:04.733 +05:30 [INF] Book with ID 2 returned successfully by user with ID 2

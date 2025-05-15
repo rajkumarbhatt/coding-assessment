@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "h4P9ZaErmakeoyV0Ix2QFqftTD7jhgWSKMp369p4AQs=",
+  "Hash": "frTq4MsC8d9TC+rINqzcLjmKEIXtV+y4T/cSsS4FDsA=",
   "Source": "Presentation",
   "BasePath": "_content/Presentation",
   "Mode": "Default",
@@ -74,6 +74,25 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\images\\book-images\\default.webp",
+      "SourceId": "Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\",
+      "BasePath": "_content/Presentation",
+      "RelativePath": "images/book-images/default.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\book-images\\default.webp"
+    },
+    {
       "Identity": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\images\\book-images\\the-monk-who-sold-his-ferrari.jfif",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
@@ -110,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\book-images\\the-wings-of-fire.jfif"
+    },
+    {
+      "Identity": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\images\\cloud.svg",
+      "SourceId": "Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\",
+      "BasePath": "_content/Presentation",
+      "RelativePath": "images/cloud.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\cloud.svg"
     },
     {
       "Identity": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\images\\dominos_background_mobile.jpg",
