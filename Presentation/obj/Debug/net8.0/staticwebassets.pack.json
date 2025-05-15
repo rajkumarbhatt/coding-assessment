@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\images\\book-images\\the-monk-who-sold-his-ferrari.jfif",
+      "PackagePath": "staticwebassets\\images\\book-images\\the-monk-who-sold-his-ferrari.jfif"
+    },
+    {
+      "Id": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\images\\book-images\\the-wings-of-fire.jfif",
+      "PackagePath": "staticwebassets\\images\\book-images\\the-wings-of-fire.jfif"
+    },
+    {
       "Id": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\images\\dominos_background.svg",
       "PackagePath": "staticwebassets\\images\\dominos_background.svg"
     },
@@ -35,6 +43,10 @@
     {
       "Id": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\images\\show-password.svg",
       "PackagePath": "staticwebassets\\images\\show-password.svg"
+    },
+    {
+      "Id": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\images\\warning.svg",
+      "PackagePath": "staticwebassets\\images\\warning.svg"
     },
     {
       "Id": "C:\\Users\\pci88\\Desktop\\Internship_Tasks\\Surprize Test\\Presentation\\wwwroot\\js\\login.js",

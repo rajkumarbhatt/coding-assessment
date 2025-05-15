@@ -95,3 +95,40 @@
 .error-image-401 {
   width: 500px;
 }
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 20px;
+  padding: 20px;
+}
+.book-card {
+  display: flex;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 500px;
+  color: white;
+  gap: 20px;
+}
+.book-card-content {
+  padding: 10px;
+}
+.w-11 {
+  width: 11%;
+}
+.w-40 {
+  width: 40%;
+}
+.pagination-dropdown {
+  width: 50px;
+}
+.form-select {
+  padding-left: 8px;
+  padding-right: 8px;
+  background-position: right 0.4rem center;
+}
+.btn-contrast {
+  background-color: white;
+  border: 1px solid #0066a7;
+  color: #0066a7;
+}

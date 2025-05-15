@@ -37,23 +37,6 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    [CustomAuth("Admin")]
-    [Route("AdminDashboard")]
-    public IActionResult AdminRedirect()
-    {
-        return View();
-    }
-
-    [HttpGet]
-    [CustomAuth("User")]
-    [Route("Dashboard")]
-    
-    public IActionResult UserRedirect()
-    {
-        return View();
-    }
-
-    [HttpGet]
     public IActionResult AccessDenied()
     {
         return View();

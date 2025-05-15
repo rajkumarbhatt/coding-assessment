@@ -1,0 +1,106 @@
+@model DAL.ViewModels.AdminDashboardViewModal
+
+<div class="books-container">
+    @foreach (var book in @Model.Books)
+    {
+        <div class="book-card">
+            <div>
+                @{
+                    var srcLink = "~/images/book-images/" + book.Image;
+                }
+                <img src="@Url.Content(srcLink)" alt="Book Image" class="book-image" />
+            </div>
+            <div class="book-card-content d-flex flex-column justify-content-between">
+                <h2>@book.Title</h2>
+                <p>Author: @book.Author</p>
+                <p>Published: @book.PublishedYear</p>
+                <p>ISBN: @book.ISBN</p>
+                <div class="action-buttons d-flex gap-3">
+                    @{
+                        var editBtnId = "edit-" + book.BookId;
+                        var deleteBtnId = "delete-" + book.BookId;
+                    }
+                    <button id="@editBtnId" onclick="editBook('@editBtnId')" class="btn btn-primary edit-book">Edit</button>
+                    <button id="@deleteBtnId" onclick="deleteBook('@deleteBtnId')"
+                        class="btn btn-danger delete-book">Delete</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="d-flex flex-column flex-sm-row align-items-center justify-content-end g-3 me-sm-5 text-danger2">
+    <div class="d-flex align-items-center gap-2">
+        <p class="pt-md-3">Items per page: </p>
+        <select class="form-select pagination-dropdown text-black" aria-label="Items per page"
+            onchange="changePageSizeOrders(this.value)" id="PageSizeSelectOrders">
+            <option value="5" selected="@(Model.PageSize == 5 ? "selected" : null)">5</option>
+            <option value="10" selected="@(Model.PageSize == 10 ? "selected" : null)">10</option>
+            <option value="15" selected="@(Model.PageSize == 15 ? "selected" : null)">15</option>
+        </select>
+    </div>
+    <p class="px-1 pt-md-3">
+        Showing @(Model.TotalPages == 0 ? 0 : (Model.PageIndex - 1) * Model.PageSize + 1) - 
+        @(Math.Min(Model.PageIndex * Model.PageSize, Model.TotalBooks)) of 
+        @Model.TotalBooks
+    </p>
+    <div class="d-flex gap-2 gap-sm-0">
+        <button id="previousButtonOrders" class="p-1 px-2" @(Model.PageIndex == 1 ? "disabled" : "")>&lt;</button>
+        <button id="nextButtonOrders" class="p-1 px-2 ms-1 border-1 border-secondary" @(Model.PageIndex == Model.TotalPages ? "disabled" : "")>&gt;</button>
+    </div>    
+</div>
+
+<script>
+
+    var pageIndex = @Model.PageIndex;
+    var pageSize = $("#PageSizeSelectOrders").val();
+
+    function editBook(id) {
+        var bookId = id.split("-")[1];
+        window.location.href = "/Admin/EditBook/" + bookId;
+    }
+
+    function deleteBook(id) {
+        debugger;
+        $("#deleteBookModal").modal("show");
+        var bookId = id.toString().split("-")[1];
+        $("#deleteBookButton").off("click").on("click", function () {
+            $.ajax({
+                url: "/Admin/DeleteBook/",
+                data: { bookId: bookId },
+                type: "POST",
+                success: function (response) {
+                    if (response.success) {
+                        toastr.success(response.message);
+                        reloadPartialView();
+                    } else {
+                        toastr.error(response.message);
+                    }
+                },
+                error: function () {
+                    toastr.error("An error occurred while deleting the book.");
+                }
+            });
+        });
+    }
+
+    function changePageSizeOrders(pageSize) {
+        var url = new URL(window.location.href);
+        url.searchParams.set('pageSize', pageSize);
+        window.location.href = url.toString();
+    }
+
+    function reloadPartialView() {
+        $.ajax({
+            url: '/Admin/RefreshBooksData',
+            type: 'GET',
+            data: { pageIndex: pageIndex, pageSize: pageSize },
+            success: function (data) {
+                $('#booksDataPartialDiv').html(data);
+            },
+            error: function () {
+                toastr.error("An error occurred while reloading the books data.");
+            }
+        });
+    }
+</script>

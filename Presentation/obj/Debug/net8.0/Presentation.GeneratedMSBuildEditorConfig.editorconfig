@@ -26,12 +26,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\pci88\Desktop\Internship_Tasks\Surprize Test\Presentation
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/pci88/Desktop/Internship_Tasks/Surprize Test/Presentation/Views/Home/AccessDenied.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc3NEZW5pZWQuY3NodG1s
+[C:/Users/pci88/Desktop/Internship_Tasks/Surprize Test/Presentation/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pci88/Desktop/Internship_Tasks/Surprize Test/Presentation/Views/Home/AdminRedirect.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZG1pblJlZGlyZWN0LmNzaHRtbA==
+[C:/Users/pci88/Desktop/Internship_Tasks/Surprize Test/Presentation/Views/Admin/_BooksDataPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0Jvb2tzRGF0YVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pci88/Desktop/Internship_Tasks/Surprize Test/Presentation/Views/Home/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pci88/Desktop/Internship_Tasks/Surprize Test/Presentation/Views/Home/Index.cshtml]
@@ -46,16 +50,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVbkF1dGhvcml6ZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pci88/Desktop/Internship_Tasks/Surprize Test/Presentation/Views/Home/UserRedirect.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2VyUmVkaXJlY3QuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/pci88/Desktop/Internship_Tasks/Surprize Test/Presentation/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pci88/Desktop/Internship_Tasks/Surprize Test/Presentation/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pci88/Desktop/Internship_Tasks/Surprize Test/Presentation/Views/User/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pci88/Desktop/Internship_Tasks/Surprize Test/Presentation/Views/_ViewImports.cshtml]

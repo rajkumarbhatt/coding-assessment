@@ -147,3 +147,21 @@
 2025-05-14 18:08:09.150 +05:30 [INF] User with email raj@yopmail.com logged in successfully
 2025-05-14 18:28:15.862 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
 2025-05-14 18:28:15.885 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-14 18:32:07.907 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-14 18:32:07.933 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 09:37:18.814 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 09:37:18.838 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 09:43:43.605 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 09:43:43.620 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 09:44:13.574 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 09:44:13.574 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 09:44:26.671 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-15 09:44:26.671 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 09:44:43.015 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 09:44:43.015 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 11:38:19.523 +05:30 [ERR] Error occurred while deleting the book with ID 0
+System.Exception: Book not found
+   at BLL.Services.AdminService.DeleteBookAsync(Int32 id) in C:\Users\pci88\Desktop\Internship_Tasks\Surprize Test\BLL\Services\AdminService.cs:line 48
+2025-05-15 11:42:05.329 +05:30 [ERR] Error occurred while deleting the book with ID 0
+System.Exception: Book not found
+   at BLL.Services.AdminService.DeleteBookAsync(Int32 id) in C:\Users\pci88\Desktop\Internship_Tasks\Surprize Test\BLL\Services\AdminService.cs:line 48

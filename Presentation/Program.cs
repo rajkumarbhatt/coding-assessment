@@ -10,10 +10,11 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
-
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<DBContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();

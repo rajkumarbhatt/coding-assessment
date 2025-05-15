@@ -3,11 +3,10 @@ if (localStorage.getItem("email")) {
 }
 
 if (document.cookie.includes("token")) {
-  // if isAdmin is true
   if (document.cookie.includes("isAdmin=true")) {
-    window.location.href = "/AdminDashboard";
+    window.location.href = "/Admin/Dashboard";
   } else {
-    window.location.href = "/Dashboard";
+    window.location.href = "/User/Dashboard";
   }
 }
 
@@ -62,11 +61,11 @@ $(document).ready(function () {
           toastr.success(response.message);
           if (response.isAdmin) {
             setTimeout(() => {
-              window.location.href = "/AdminDashboard";
+              window.location.href = "/Admin/Dashboard";
             }, 1000);
           } else {
             setTimeout(() => {
-              window.location.href = "/Dashboard";
+              window.location.href = "/User/Dashboard";
             }, 1000);
           }
         } else {

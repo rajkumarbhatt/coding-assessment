@@ -48,5 +48,41 @@ namespace BLL.Services
                 throw new Exception("An error occurred while generating the JWT token", ex);
             }
         }
+
+        public async Task<int> GetUserIdFromJwtTokenAsync(string token)
+        {
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    var jwtToken = tokenHandler.ReadToken(token) as JwtSecurityToken;
+
+                    if (jwtToken == null)
+                    {
+                        throw new ArgumentException("Invalid JWT token");
+                    }
+
+                    var userIdClaim = jwtToken.Claims.FirstOrDefault(claim => claim.Type == JwtRegisteredClaimNames.Sub);
+                    if (userIdClaim == null)
+                    {
+                        throw new ArgumentException("JWT token does not contain a user ID");
+                    }
+
+                    if (!int.TryParse(userIdClaim.Value, out int userId))
+                    {
+                        throw new ArgumentException("Invalid user ID in JWT token");
+                    }
+
+                    return userId;
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while extracting the user ID from the JWT token");
+                Console.WriteLine(ex.Message);
+                throw new Exception("An error occurred while extracting the user ID from the JWT token", ex);
+            }
+        }
     }
 }
