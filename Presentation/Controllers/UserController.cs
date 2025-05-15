@@ -5,6 +5,8 @@ using Presentaion.Controllers;
 
 namespace Presentation.Controllers;
 
+[ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+[CustomAuth("User")]
 public class UserController : Controller
 {
     private readonly ILogger<UserController> _logger;
@@ -17,7 +19,6 @@ public class UserController : Controller
     }
 
     [HttpGet]
-    [CustomAuth("User")]
     public async Task<IActionResult> Dashboard()
     {
         UserDashboardViewModal userDashboardViewModal = await _userService.GetUserDashboardViewModalAsync();
@@ -25,11 +26,11 @@ public class UserController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> RefreshBooksData(int pageIndex = 1, int pageSize = 8, bool inIssue = true)
+    public async Task<IActionResult> RefreshBooksData(int pageIndex = 1, int pageSize = 8, bool inIssue = true, string searchValue = "", int filterValue = 0)
     {
         try
         {
-            var userDashboardViewModal = await _userService.GetUserDashboardViewModalAsync(pageIndex, pageSize, inIssue);
+            var userDashboardViewModal = await _userService.GetUserDashboardViewModalAsync(pageIndex, pageSize, inIssue, searchValue, filterValue);
             return PartialView("_BooksDataPartial", userDashboardViewModal);
         }
         catch (Exception ex)
@@ -40,7 +41,6 @@ public class UserController : Controller
     }
 
     [HttpPost]
-    [CustomAuth("User")]
     public async Task<IActionResult> IssueBook(int bookId)
     {
         try
@@ -55,7 +55,6 @@ public class UserController : Controller
     }
 
     [HttpPost]
-    [CustomAuth("User")]
     public async Task<IActionResult> ReturnBook(int bookId)
     {
         try

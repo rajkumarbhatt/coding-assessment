@@ -124,7 +124,7 @@
   display: flex;
   border: 1px solid white;
   border-radius: 10px;
-  width: 500px;
+  width: 450px;
   color: white;
   gap: 20px;
 }
@@ -216,4 +216,13 @@
   width: 160px;
   height: 100%;
   /* object-fit: cover; */
+}
+.search-input {
+  width: 20%;
+}
+.cursor-none {
+  cursor: not-allowed;
+}
+.FilterBooksSelectOptions {
+  width: 400px;
 }

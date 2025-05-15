@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Presentaion.Controllers;
 
+[ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+[CustomAuth("Admin")]
 public class AdminController : Controller
 {
     private readonly ILogger<AdminController> _logger;
@@ -16,12 +18,11 @@ public class AdminController : Controller
     }
 
     [HttpGet]
-    [CustomAuth("Admin")]
-    public IActionResult Dashboard()
+    public async Task<IActionResult> Dashboard()
     {
         try
         {
-            var adminDashboardViewModal = _adminService.GetAdminDashboardViewModalAsync().Result;
+            var adminDashboardViewModal = await _adminService.GetAdminDashboardViewModalAsync();
             return View(adminDashboardViewModal);
         }
         catch (Exception ex)
@@ -33,7 +34,6 @@ public class AdminController : Controller
     }
 
     [HttpPost]
-    [CustomAuth("Admin")]
     public async Task<IActionResult> DeleteBook(int bookId)
     {
         try
@@ -48,11 +48,11 @@ public class AdminController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> RefreshBooksData(int pageIndex = 1, int pageSize = 8, bool inAvailable = true)
+    public async Task<IActionResult> RefreshBooksData(int pageIndex = 1, int pageSize = 8, bool inAvailable = true, string searchValue = "", int filterValue = 0)
     {
         try
         {
-            var adminDashboardViewModal = await _adminService.GetAdminDashboardViewModalAsync(pageIndex, pageSize, inAvailable);
+            var adminDashboardViewModal = await _adminService.GetAdminDashboardViewModalAsync(pageIndex, pageSize, inAvailable, searchValue, filterValue);
             return PartialView("_BooksDataPartial", adminDashboardViewModal);
         }
         catch (Exception ex)
@@ -63,7 +63,6 @@ public class AdminController : Controller
     }
 
     [HttpGet]
-    [CustomAuth("Admin")]
     public async Task<IActionResult> GetBookById(int bookId)
     {
         try
@@ -79,8 +78,7 @@ public class AdminController : Controller
     }
 
     [HttpPost]
-    [CustomAuth("Admin")]
-    public async Task<IActionResult> AddEditBook(AddEditBookViewModal addEditBookViewModal)
+    public async Task<IActionResult> AddEditBook([FromForm] AddEditBookViewModal addEditBookViewModal)
     {
         try
         {
@@ -98,7 +96,6 @@ public class AdminController : Controller
     }
 
     [HttpGet]
-    [CustomAuth("Admin")]
     public async Task<IActionResult> RefreshAddEditBook()
     {
         try

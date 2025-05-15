@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BLL.Interfaces
 {
-    public interface IAdminService
+    public interface IAdminService 
     {
-        Task<AdminDashboardViewModal> GetAdminDashboardViewModalAsync(int pageIndex = 1, int pageSize = 8, bool inAvailable = true);
+        Task<AdminDashboardViewModal> GetAdminDashboardViewModalAsync(int pageIndex = 1, int pageSize = 8, bool inAvailable = true, string searchValue = "", int filterValue = 0);
         Task<IActionResult> DeleteBookAsync(int id);
         Task<IActionResult> AddEditBookAsync(AddEditBookViewModal addEditBookViewModal);
         Task<AdminDashboardViewModal> GetBookByIdAsync(int id);

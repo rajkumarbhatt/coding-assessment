@@ -1,38 +1,54 @@
 @model DAL.ViewModels.AdminDashboardViewModal
 
 <div class="books-container">
-    @foreach (var book in @Model.Books)
+    @if (Model.Books != null && Model.Books.Count > 0)
     {
-        <div class="book-card">
-            <div>
-                @{
-                    var srcLink = "";
-                    if (book.Image == null)
-                    {
-                        srcLink = "~/images/book-images/default.webp";
-                    }
-                    else
-                    {
-                        srcLink = "~/images/book-images/" + book.Image;
-                    }
-                }
-                <img src="@Url.Content(@srcLink)" alt="Book Image" class="book-image" />
-            </div>
-            <div class="book-card-content d-flex flex-column justify-content-between">
-                <h2>@book.Title</h2>
-                <p>Author: @book.Author</p>
-                <p>Published: @book.PublishedYear</p>
-                <p>ISBN: @book.ISBN</p>
-                <div class="action-buttons d-flex gap-3">
+        @foreach (var book in @Model.Books)
+        {
+            <div class="book-card">
+                <div>
                     @{
-                        var editBtnId = "edit-" + book.BookId;
-                        var deleteBtnId = "delete-" + book.BookId;
+                        var srcLink = "";
+                        if (book.Image == null)
+                        {
+                            srcLink = "~/images/book-images/default.webp";
+                        }
+                        else
+                        {
+                            srcLink = "~/images/book-images/" + book.Image;
+                        }
                     }
-                    <button id="@editBtnId" onclick="editBook('@editBtnId')" class="btn btn-primary edit-book">Edit</button>
-                    <button id="@deleteBtnId" onclick="deleteBook('@deleteBtnId')"
-                        class="btn btn-danger delete-book">Delete</button>
+                    <img src="@Url.Content(@srcLink)" alt="Book Image" class="book-image" />
+                </div>
+                <div class="book-card-content d-flex flex-column justify-content-between">
+                    <h2>@book.Title</h2>
+                    <p>Author: @book.Author</p>
+                    <p>Published: @book.PublishedYear</p>
+                    <p>ISBN: @book.ISBN</p>
+                    @if (!Model.InAvailable)
+                    {
+                        <p>Issued By: @book.IssuedBy</p>
+                    }
+                    @if (Model.InAvailable)
+                    {
+                        <div class="action-buttons d-flex gap-3">
+                            @{
+                                var editBtnId = "edit-" + book.BookId;
+                                var deleteBtnId = "delete-" + book.BookId;
+                            }
+                            <button id="@editBtnId" onclick="editBook('@editBtnId')" class="btn btn-primary edit-book">Edit</button>
+                            <button id="@deleteBtnId" onclick="deleteBook('@deleteBtnId')"
+                                class="btn btn-danger delete-book">Delete</button>
+                        </div>
+                    }
                 </div>
             </div>
+        }
+    }
+    else
+    {
+        <div class="text-center text-white">
+            <h3>No books found</h3>
         </div>
     }
 </div>
@@ -53,9 +69,9 @@
         @Model.TotalBooks
     </p>
     <div class="d-flex gap-2 gap-sm-0">
-        <button id="previousButtonOrders" class="p-1 px-2" @(Model.PageIndex == 1 ? "disabled" : "")>&lt;</button>
-        <button id="nextButtonOrders" class="p-1 px-2 ms-1 border-1 border-secondary" @(Model.PageIndex ==
-                                                                                                  Model.TotalPages ? "disabled" : "")>&gt;</button>
+        <button id="previousButton" class="p-1 px-2" @(Model.PageIndex == 1 ? "disabled" : "")>&lt;</button>
+        <button id="nextButton" class="p-1 px-2 ms-1 border-1 border-secondary" @(Model.PageIndex == Model.TotalPages ?
+                                                                                            "disabled" : "")>&gt;</button>
     </div>
 </div>
 @section Scripts {
@@ -76,6 +92,7 @@
             success: function (data) {
                 $("#addEditBookModalPartial").html(data);
                 $("#addEditBookModal").modal("show");
+                $("#addEditBookTitle").text("Edit Book");
                 $.validator.unobtrusive.parse("#AddEditBookForm");
             },
             error: function () {
@@ -85,7 +102,6 @@
     }
 
     function deleteBook(id) {
-        debugger;
         $("#deleteBookModal").modal("show");
         var bookId = id.toString().split("-")[1];
         $("#deleteBookButton").off("click").on("click", function () {
@@ -110,14 +126,17 @@
 
     function changePageSizeOrders(newPageSize) {
         pageSize = newPageSize;
+        pageIndex = 1;
         reloadPartialView();
     }
 
     function reloadPartialView() {
+        var searchString = $("#searchInput").val();
+        var filterOption = $("#FilterBooksSelectOption").val();
         $.ajax({
             url: '/Admin/RefreshBooksData',
             type: 'GET',
-            data: { pageIndex: pageIndex, pageSize: pageSize, inAvailable: inAvailabe },
+            data: { pageIndex: pageIndex, pageSize: pageSize, inAvailable: inAvailabe, searchValue: searchString, filterValue: filterOption },
             success: function (data) {
                 $('#booksDataPartialDiv').html(data);
             },
@@ -126,4 +145,18 @@
             }
         });
     }
+
+    $("#nextButton").off("click").click(function () {
+        if (pageIndex < @Model.TotalPages) {
+            pageIndex++;
+            reloadPartialView();
+        }
+    });
+
+    $("#previousButton").off("click").click(function () {
+        if (pageIndex > 1) {
+            pageIndex--;
+            reloadPartialView();
+        }
+    });
 </script>

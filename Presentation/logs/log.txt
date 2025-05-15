@@ -188,3 +188,145 @@ System.Exception: Book not found
 2025-05-15 14:45:56.341 +05:30 [INF] Book with ID 4 issued successfully to user with ID 2
 2025-05-15 14:46:02.773 +05:30 [INF] Book with ID 4 returned successfully by user with ID 2
 2025-05-15 14:46:04.733 +05:30 [INF] Book with ID 2 returned successfully by user with ID 2
+2025-05-15 14:53:05.181 +05:30 [INF] Book with ID 4 issued successfully to user with ID 2
+2025-05-15 14:53:20.371 +05:30 [INF] JWT token generated successfully for user with email harsh@yopmail.com
+2025-05-15 14:53:20.379 +05:30 [INF] User with email harsh@yopmail.com logged in successfully
+2025-05-15 14:53:26.964 +05:30 [INF] Book with ID 2 issued successfully to user with ID 5
+2025-05-15 14:53:42.348 +05:30 [INF] Book with ID 4 returned successfully by user with ID 2
+2025-05-15 14:53:48.043 +05:30 [INF] Book with ID 2 returned successfully by user with ID 5
+2025-05-15 15:00:33.224 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 15:00:33.271 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 15:02:04.821 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 15:02:04.842 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 15:02:22.998 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-15 15:02:22.998 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 15:02:33.536 +05:30 [INF] Book with ID 2 issued successfully to user with ID 2
+2025-05-15 15:02:39.942 +05:30 [INF] Book with ID 2 returned successfully by user with ID 2
+2025-05-15 15:04:03.713 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 15:04:03.714 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 15:05:50.825 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 15:05:50.865 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 15:07:32.187 +05:30 [INF] Book with ID 20 added successfully by user with ID 1
+2025-05-15 15:07:37.049 +05:30 [INF] Book with ID 20 deleted successfully by user with ID 1
+2025-05-15 15:11:16.683 +05:30 [INF] Book with ID 21 added successfully by user with ID 1
+2025-05-15 15:11:50.718 +05:30 [INF] Book with ID 21 deleted successfully by user with ID 1
+2025-05-15 15:12:19.868 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 15:12:19.874 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 15:14:16.690 +05:30 [INF] Book with ID 4 updated successfully by user with ID 1
+2025-05-15 15:14:19.079 +05:30 [INF] Book with ID 2 updated successfully by user with ID 1
+2025-05-15 15:14:33.149 +05:30 [INF] Book with ID 2 updated successfully by user with ID 1
+2025-05-15 15:14:40.539 +05:30 [INF] Book with ID 2 updated successfully by user with ID 1
+2025-05-15 15:17:10.071 +05:30 [INF] Book with ID 2 updated successfully by user with ID 1
+2025-05-15 15:17:36.245 +05:30 [INF] Book with ID 2 updated successfully by user with ID 1
+2025-05-15 15:17:42.327 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 15:17:42.334 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 15:18:05.300 +05:30 [WRN] Invalid password for user with email raj@yopmail.com
+2025-05-15 15:18:08.667 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 15:18:08.667 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 15:28:15.994 +05:30 [INF] Book with ID 22 added successfully by user with ID 1
+2025-05-15 15:28:22.134 +05:30 [INF] Book with ID 22 updated successfully by user with ID 1
+2025-05-15 15:28:26.773 +05:30 [INF] Book with ID 22 deleted successfully by user with ID 1
+2025-05-15 15:30:29.074 +05:30 [INF] Book with ID 23 added successfully by user with ID 1
+2025-05-15 15:31:17.270 +05:30 [INF] Book with ID 24 added successfully by user with ID 1
+2025-05-15 15:33:28.566 +05:30 [INF] Book with ID 25 added successfully by user with ID 1
+2025-05-15 15:34:28.579 +05:30 [INF] Book with ID 26 added successfully by user with ID 1
+2025-05-15 15:35:11.530 +05:30 [INF] Book with ID 27 added successfully by user with ID 1
+2025-05-15 15:35:46.735 +05:30 [INF] Book with ID 28 added successfully by user with ID 1
+2025-05-15 15:36:27.787 +05:30 [INF] Book with ID 29 added successfully by user with ID 1
+2025-05-15 15:37:25.370 +05:30 [INF] Book with ID 30 added successfully by user with ID 1
+2025-05-15 15:39:31.744 +05:30 [INF] Book with ID 31 added successfully by user with ID 1
+2025-05-15 15:42:30.953 +05:30 [INF] Book with ID 32 added successfully by user with ID 1
+2025-05-15 15:43:17.037 +05:30 [INF] Book with ID 33 added successfully by user with ID 1
+2025-05-15 15:43:45.548 +05:30 [INF] Book with ID 33 deleted successfully by user with ID 1
+2025-05-15 15:44:30.140 +05:30 [INF] Book with ID 35 added successfully by user with ID 1
+2025-05-15 15:46:53.445 +05:30 [INF] Book with ID 36 added successfully by user with ID 1
+2025-05-15 15:48:33.146 +05:30 [INF] Book with ID 37 added successfully by user with ID 1
+2025-05-15 15:50:30.787 +05:30 [INF] Book with ID 38 added successfully by user with ID 1
+2025-05-15 15:51:33.980 +05:30 [INF] Book with ID 39 added successfully by user with ID 1
+2025-05-15 15:52:04.804 +05:30 [INF] Book with ID 40 added successfully by user with ID 1
+2025-05-15 15:52:46.893 +05:30 [INF] Book with ID 41 added successfully by user with ID 1
+2025-05-15 15:53:15.124 +05:30 [INF] Book with ID 31 updated successfully by user with ID 1
+2025-05-15 15:53:19.473 +05:30 [INF] Book with ID 27 updated successfully by user with ID 1
+2025-05-15 15:53:25.464 +05:30 [INF] Book with ID 41 updated successfully by user with ID 1
+2025-05-15 15:53:30.497 +05:30 [INF] Book with ID 41 updated successfully by user with ID 1
+2025-05-15 16:15:15.185 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-15 16:15:15.200 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 16:19:39.708 +05:30 [INF] Book with ID 30 issued successfully to user with ID 2
+2025-05-15 16:19:44.377 +05:30 [INF] Book with ID 30 returned successfully by user with ID 2
+2025-05-15 16:22:39.724 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 16:22:39.730 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 16:23:30.165 +05:30 [INF] Book with ID 2 updated successfully by user with ID 1
+2025-05-15 16:23:54.872 +05:30 [INF] Book with ID 2 updated successfully by user with ID 1
+2025-05-15 16:24:07.577 +05:30 [INF] Book with ID 2 updated successfully by user with ID 1
+2025-05-15 16:25:30.546 +05:30 [INF] Book with ID 2 updated successfully by user with ID 1
+2025-05-15 16:30:18.652 +05:30 [INF] Book with ID 2 updated successfully by user with ID 1
+2025-05-15 16:32:07.347 +05:30 [INF] Book with ID 42 added successfully by user with ID 1
+2025-05-15 16:32:49.681 +05:30 [INF] Book with ID 42 deleted successfully by user with ID 1
+2025-05-15 16:34:48.508 +05:30 [WRN] Invalid password for user with email kartik@yopmail.com
+2025-05-15 16:34:48.994 +05:30 [WRN] Invalid password for user with email kartik@yopmail.com
+2025-05-15 16:34:49.249 +05:30 [WRN] Invalid password for user with email kartik@yopmail.com
+2025-05-15 16:34:49.497 +05:30 [WRN] Invalid password for user with email kartik@yopmail.com
+2025-05-15 16:34:52.763 +05:30 [WRN] User with email kartik@yopmai does not exist
+2025-05-15 16:34:58.996 +05:30 [WRN] User with email kartik@yopmai does not exist
+2025-05-15 16:34:59.667 +05:30 [WRN] User with email kartik@yopmai does not exist
+2025-05-15 16:35:37.423 +05:30 [WRN] User with email kartik3232323232@r does not exist
+2025-05-15 16:35:54.619 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-15 16:35:54.619 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 16:36:17.275 +05:30 [INF] Book with ID 31 issued successfully to user with ID 2
+2025-05-15 16:39:20.183 +05:30 [INF] Book with ID 33 issued successfully to user with ID 2
+2025-05-15 16:39:22.526 +05:30 [INF] Book with ID 27 issued successfully to user with ID 2
+2025-05-15 16:49:06.497 +05:30 [INF] JWT token generated successfully for user with email harsh@yopmail.com
+2025-05-15 16:49:06.516 +05:30 [INF] User with email harsh@yopmail.com logged in successfully
+2025-05-15 16:49:09.884 +05:30 [INF] Book with ID 30 issued successfully to user with ID 5
+2025-05-15 16:49:11.560 +05:30 [INF] Book with ID 4 issued successfully to user with ID 5
+2025-05-15 16:49:13.733 +05:30 [INF] Book with ID 23 issued successfully to user with ID 5
+2025-05-15 16:49:37.031 +05:30 [WRN] User with email parth@yopmail.com does not exist
+2025-05-15 16:49:41.236 +05:30 [WRN] User with email siddh@yopmail.com does not exist
+2025-05-15 16:49:44.996 +05:30 [WRN] User with email shubham@yopmail.com does not exist
+2025-05-15 16:49:49.743 +05:30 [INF] JWT token generated successfully for user with email sahaj@yopmail.com
+2025-05-15 16:49:49.744 +05:30 [INF] User with email sahaj@yopmail.com logged in successfully
+2025-05-15 16:49:53.427 +05:30 [INF] Book with ID 24 issued successfully to user with ID 4
+2025-05-15 16:49:55.048 +05:30 [INF] Book with ID 25 issued successfully to user with ID 4
+2025-05-15 16:49:56.929 +05:30 [INF] Book with ID 26 issued successfully to user with ID 4
+2025-05-15 16:50:34.646 +05:30 [INF] Book with ID 24 returned successfully by user with ID 4
+2025-05-15 16:50:36.541 +05:30 [INF] Book with ID 25 returned successfully by user with ID 4
+2025-05-15 16:50:39.541 +05:30 [INF] Book with ID 26 returned successfully by user with ID 4
+2025-05-15 16:54:45.864 +05:30 [INF] JWT token generated successfully for user with email harsh@yopmail.com
+2025-05-15 16:54:45.864 +05:30 [INF] User with email harsh@yopmail.com logged in successfully
+2025-05-15 16:54:50.265 +05:30 [INF] Book with ID 4 returned successfully by user with ID 5
+2025-05-15 16:54:52.014 +05:30 [INF] Book with ID 23 returned successfully by user with ID 5
+2025-05-15 16:54:54.509 +05:30 [INF] Book with ID 30 returned successfully by user with ID 5
+2025-05-15 16:55:01.340 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-15 16:55:01.340 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 16:55:05.491 +05:30 [INF] Book with ID 33 returned successfully by user with ID 2
+2025-05-15 16:55:07.188 +05:30 [INF] Book with ID 31 returned successfully by user with ID 2
+2025-05-15 16:55:08.973 +05:30 [INF] Book with ID 27 returned successfully by user with ID 2
+2025-05-15 17:07:50.579 +05:30 [INF] Book with ID 24 issued successfully to user with ID 2
+2025-05-15 17:08:05.869 +05:30 [INF] Book with ID 24 returned successfully by user with ID 2
+2025-05-15 17:14:50.086 +05:30 [INF] Book with ID 36 issued successfully to user with ID 2
+2025-05-15 17:15:15.174 +05:30 [INF] Book with ID 41 deleted successfully by user with ID 1
+2025-05-15 17:15:31.754 +05:30 [INF] Book with ID 35 deleted successfully by user with ID 1
+2025-05-15 17:16:22.140 +05:30 [INF] Book with ID 36 returned successfully by user with ID 2
+2025-05-15 17:29:45.002 +05:30 [INF] Book with ID 27 updated successfully by user with ID 1
+2025-05-15 17:39:16.228 +05:30 [INF] Book with ID 24 updated successfully by user with ID 1
+2025-05-15 17:40:15.630 +05:30 [INF] Book with ID 24 updated successfully by user with ID 1
+2025-05-15 17:40:22.630 +05:30 [INF] Book with ID 24 updated successfully by user with ID 1
+2025-05-15 17:49:29.301 +05:30 [INF] Book with ID 37 issued successfully to user with ID 2
+2025-05-15 17:49:36.739 +05:30 [INF] Book with ID 37 returned successfully by user with ID 2
+2025-05-15 17:53:44.264 +05:30 [WRN] Invalid password for user with email kartik@yopmail.com
+2025-05-15 17:53:47.864 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-15 17:53:47.888 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 17:53:53.022 +05:30 [INF] JWT token generated successfully for user with email raj@yopmail.com
+2025-05-15 17:53:53.023 +05:30 [INF] User with email raj@yopmail.com logged in successfully
+2025-05-15 17:54:21.275 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-15 17:54:21.276 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 17:55:04.863 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-15 17:55:04.863 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 17:58:01.871 +05:30 [INF] JWT token generated successfully for user with email kartik@yopmail.com
+2025-05-15 17:58:01.888 +05:30 [INF] User with email kartik@yopmail.com logged in successfully
+2025-05-15 17:58:23.403 +05:30 [INF] Book with ID 2 issued successfully to user with ID 2
+2025-05-15 17:58:25.500 +05:30 [INF] Book with ID 4 issued successfully to user with ID 2
+2025-05-15 17:58:27.378 +05:30 [INF] Book with ID 23 issued successfully to user with ID 2
+2025-05-15 17:58:48.356 +05:30 [INF] Book with ID 23 returned successfully by user with ID 2
+2025-05-15 17:58:50.044 +05:30 [INF] Book with ID 4 returned successfully by user with ID 2
+2025-05-15 17:58:51.649 +05:30 [INF] Book with ID 2 returned successfully by user with ID 2

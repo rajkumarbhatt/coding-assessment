@@ -5,9 +5,9 @@
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered table-modal">
         <div class="modal-content">
-            <form id="AddEditBookForm" method="post">
+            <form id="AddEditBookForm" method="post" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addTableTitle">Add Book</h5>
+                    <h5 class="modal-title" id="addEditBookTitle">Add Book</h5>
                     <button onclick="clearAddEditBookForm()" type="button" class="btn-close" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
@@ -92,11 +92,11 @@
                         </div>
                         <div class="col-12 row mt-2">
                             <div class="col-12 col-md-6 p-2 form-floating">
-                                <select asp-for="AddEditBookViewModal.Status" id="TableStatus" class="form-select"
-                                    aria-label="CategoryId">
-                                    <option value="true" selected="@(Model.AddEditBookViewModal.Status == true)">
+                                <select disabled asp-for="AddEditBookViewModal.Status" id="TableStatus" class="form-select cursor-none" readonly
+                                    aria-label="CategoryId" style="background-color: #E9ECEF">
+                                    <option disabled value="true" selected="@(Model.AddEditBookViewModal.Status == true)">
                                         Available</option>
-                                    <option value="false" selected="@(Model.AddEditBookViewModal.Status == false)">
+                                    <option disabled value="false" selected="@(Model.AddEditBookViewModal.Status == false)">
                                         Issued</option>
                                 </select>
                                 <label for="CategoryId" class="mx-2 mt-2" style="left: 0;">Status*</label>
@@ -109,8 +109,7 @@
                                     <span>Browse Files</span>
                                     <p id="file-name"></p>
                                 </div>
-                                <input type="file" id="upload-btn" class="position-absolute file-input-btn"
-                                    name="ProfileImage" accept="image/*" />
+                                <input type="file" id="upload-btn" class="position-absolute file-input-btn" asp-for="@Model.AddEditBookViewModal.ImageFile" name="AddEditBookViewModal.ImageFile" accept="image/*" />
                             </div>
                         </div>
                     </div>
